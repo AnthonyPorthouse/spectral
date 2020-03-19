@@ -21,7 +21,7 @@ export async function readRuleset(uris: string | string[], opts?: IRulesetReadOp
     functions: {},
     exceptions: {},
   };
-
+  console.log('** ' + uris);
   const processedRulesets = new Set<string>();
   const processRuleset = createRulesetProcessor(processedRulesets, new Cache(), opts);
 
@@ -67,8 +67,11 @@ const createRulesetProcessor = (
         async parseResolveResult(opts) {
           return new Promise<IUriParserResult>(resolve => {
             try {
+              console.log('** C');
               resolve({ result: parse(opts.result) });
+              console.log('** E');
             } catch (e) {
+              console.log('** D');
               resolve({ error: e });
             }
           });

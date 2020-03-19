@@ -7,7 +7,7 @@ const ruleName = 'asyncapi-contact-properties';
 let s: Spectral;
 let expectedSeverity: SpectralDiagnosticSeverity;
 
-describe(`Rule '${ruleName}'`, () => {
+fdescribe(`Rule '${ruleName}'`, () => {
   beforeAll(async () => {
     [s, expectedSeverity] = await buildSpectralWithRule(ruleName);
   });
@@ -23,7 +23,7 @@ describe(`Rule '${ruleName}'`, () => {
     },
   };
 
-  test('validates a correct object', async () => {
+  fit('validates a correct object', async () => {
     const results = await s.run(doc, { ignoreUnknownFormat: false });
 
     expect(results).toEqual([]);

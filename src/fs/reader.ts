@@ -81,6 +81,8 @@ export async function readParsable(name: string | number, opts: IReadOptions): P
   try {
     return await readFile(name, opts);
   } catch (ex) {
-    throw new Error(`Could not parse ${name}: ${ex.message}`);
+    console.log('name: ' + name);
+    console.log('opts: ' + JSON.stringify(opts));
+    throw new Error(`Could not parse ${name}: ${ex}`);
   }
 }
